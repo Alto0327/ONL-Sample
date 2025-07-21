@@ -6,10 +6,10 @@ export default function Nav(){
             <nav>
                 <ul>
                     <li>About us</li>
-                    <div className="nav-right-group">
-                        <li>Schedule</li>
-                        <li>Register Now</li>
-                    </div>
+                    <li className="nav-right-group">
+                        <span>Schedule</span>
+                        <span>Register Now</span>
+                    </li>
                 </ul>
 
             </nav>
