@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import sample4 from "../assets/sample4.jpg";
-import sample3 from "../assets/sample3.jpg";
-import sample2 from "../assets/sample2.jpg";
+import sample4 from "../assets/Gym-pic1.PNG";
+import sample3 from "../assets/Gym-pic2.PNG";
+import sample2 from "../assets/CTC-Gym4.jpg";
 
 const slides = [
   { img: sample2, caption: "Hamilton Finals 2024" },
