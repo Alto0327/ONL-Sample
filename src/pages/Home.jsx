@@ -50,7 +50,7 @@ export default function Home() {
             </section>
 
             <footer>
-                <p>Sample Page in the works</p>
+                <p>Sample Page in the workss</p>
             </footer>
 
             {showModal && <AthleteModal onClose={() => setShowModal(false)} />}
