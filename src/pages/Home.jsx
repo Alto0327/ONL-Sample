@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import sample from "../assets/sample.jpg";
 import Slideshow from "../components/Slideshow";
@@ -6,6 +6,16 @@ import AthleteModal from "../components/AthleteModal";
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
+    const [wpContent, setWpContent] = useState(null);
+
+    useEffect(() => {
+        fetch('https://ninjaobstaclesportsontario.ca/wp-json/wp/v2/pages?slug=home')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data[0]) setWpContent(data[0].content.rendered);
+          })
+          .catch(console.error);
+    }, []);
 
     return (
         <>
@@ -18,7 +28,11 @@ export default function Home() {
 
             <section className="AboutUs">
                 <h2>About us</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda suscipit amet, eaque velit quo vero dolore inventore id odit eius consequatur error sapiente, sed necessitatibus vitae animi sunt laboriosam voluptatum, cumque sequi. Animi magni minima molestias molestiae laborum exercitationem, quae obcaecati, culpa itaque doloremque suscipit nostrum qui omnis, eaque consequatur.</p>
+                {wpContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: wpContent }} />
+                ) : (
+                  <p>Loading about us...</p>
+                )}
                 <p><a href="#">More Info About us -&gt;</a></p>
             </section>
 
